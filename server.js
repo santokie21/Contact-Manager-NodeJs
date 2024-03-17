@@ -9,7 +9,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/contacts", (req, res) => {
-  res.json({ message: "Hello World" });
+  res.status(200).json({ message: "Get All contacts" });
 });
 
 app.listen(PORT, () => {
