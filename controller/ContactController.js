@@ -17,6 +17,10 @@ const getContactById = (req, res) => {
 //@access Public
 const createContact = (req, res) => {
   console.log(req.body);
+  const { name, email, phone } = req.body;
+  if (!name || !email || !phone) {
+    return res.status(400).json({ message: "Please enter all fields" });
+  }
   res.status(201).json({ message: "Create Contact" });
 };
 
