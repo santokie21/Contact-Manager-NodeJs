@@ -5,11 +5,12 @@ const {
   loginUser,
   currentUser,
 } = require("../controller/userController");
+const validateTokenHandler = require("../middleware/validateTokenHandler");
 
 router.route("/register").post(registerUser);
 
 router.route("/login").post(loginUser);
 
-router.route("/current").get(currentUser);
+router.route("/current").get(validateTokenHandler, currentUser);
 
 module.exports = router;
